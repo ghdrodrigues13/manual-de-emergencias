@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 30% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 10%;
+
+    --primary: 220 70% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 92%;
+    --secondary-foreground: 220 30% 15%;
+
+    --muted: 220 15% 93%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 220 20% 92%;
+    --accent-foreground: 220 30% 15%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 220 70% 45%;
+
+    --radius: 0.75rem;
+
+    /* ERG Section Colors */
+    --erg-branca: 220 15% 93%;
+    --erg-amarela: 45 95% 50%;
+    --erg-azul: 215 85% 50%;
+    --erg-laranja: 25 95% 55%;
+    --erg-verde: 145 60% 42%;
+
+    /* Danger levels */
+    --danger-high: 0 80% 55%;
+    --danger-medium: 35 90% 55%;
+    --danger-low: 145 60% 42%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 10% 92%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 220 10% 92%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 10% 92%;
+
+    --primary: 215 80% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 220 10% 85%;
+
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 220 20% 18%;
+    --accent-foreground: 220 10% 85%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 215 80% 55%;
+
+    --erg-branca: 220 20% 16%;
+    --erg-amarela: 48 90% 50%;
+    --erg-azul: 210 80% 55%;
+    --erg-laranja: 25 80% 45%;
+    --erg-verde: 145 50% 35%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .erg-section-branca {
+    border-left: 4px solid hsl(var(--erg-branca));
+  }
+  .erg-section-amarela {
+    border-left: 4px solid hsl(var(--erg-amarela));
+  }
+  .erg-section-azul {
+    border-left: 4px solid hsl(var(--erg-azul));
+  }
+  .erg-section-laranja {
+    border-left: 4px solid hsl(var(--erg-laranja));
+  }
+  .erg-section-verde {
+    border-left: 4px solid hsl(var(--erg-verde));
+  }
+}

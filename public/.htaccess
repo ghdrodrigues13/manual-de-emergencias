@@ -1,0 +1,37 @@
+# Manual de Emergências — configuração Apache
+# Coloque este arquivo dentro da subpasta /manual/ (junto com index.html)
+
+Options -MultiViews
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /manual/
+
+  # Não reescreve arquivos ou diretórios reais (CSS, JS, imagens, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Qualquer outra rota cai no index.html (SPA fallback)
+  RewriteRule . /manual/index.html [L]
+</IfModule>
+
+# Cache longo para assets versionados (hash no nome)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(?:js|css|woff2?|ttf|otf|eot|svg|png|jpg|jpeg|gif|webp|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML e manifest: sempre revalidar (atualizações chegam rápido)
+  <FilesMatch "\.(?:html|webmanifest|json)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# Compressão gzip
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# MIME type para o manifest PWA
+AddType application/manifest+json .webmanifest
